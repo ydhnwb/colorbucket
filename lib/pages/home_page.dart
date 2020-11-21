@@ -48,9 +48,10 @@ class _HomePageState extends State<HomePage> {
                   child: _cameraView()
                 ),
                 SizedBox(height: 16.0),
-                Text(
-                  "Hello world", 
-                  style: TextStyle(fontSize: 18)
+                RaisedButton(
+                  shape: CircleBorder(),
+                  color: Colors.white,
+                  onPressed: () => {},
                 )
               ],
             )
@@ -62,7 +63,11 @@ class _HomePageState extends State<HomePage> {
 
   _cameraView(){
     if(_cameraController == null || !_cameraController.value.isInitialized){
-      return Text("Loading", style: TextStyle(fontWeight: FontWeight.bold),);
+      return Container(
+        child: Center(
+          child: Text("Loading", style: TextStyle(fontWeight: FontWeight.bold))
+        )
+      );
     }
     return AspectRatio(
       aspectRatio: _cameraController.value.aspectRatio,
